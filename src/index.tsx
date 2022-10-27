@@ -1,12 +1,10 @@
 import React, { FC } from "react"
 import * as rdf from "rdflib"
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import { RecoilRoot } from "recoil"
+import { BrowserRouter, Route, Routes, useLocation, useParams } from "react-router-dom"
 
 const debug = require("debug")("rde:entity:container:demo")
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
 
 const SimpleContainer: FC<{  }> = ({
 }) => {
@@ -19,8 +17,18 @@ const SimpleContainer: FC<{  }> = ({
   )
 }
 
-root.render(
-  <>
-    <SimpleContainer/>
-  </>
-)
+function App() {
+  return (
+    <BrowserRouter>
+      <RecoilRoot>
+        <Routes>
+          <Route path="/" element={<SimpleContainer />} />
+        </Routes>
+      </RecoilRoot>
+    </BrowserRouter>
+  )
+}
+
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(<App />);
