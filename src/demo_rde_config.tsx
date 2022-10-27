@@ -52,6 +52,7 @@ const prefixMap = new ns.PrefixMap({
   "": "http://purl.bdrc.io/ontology/core/",
   adm: "http://purl.bdrc.io/ontology/admin/",
   bda: "http://purl.bdrc.io/admindata/",
+  bds: "http://purl.bdrc.io/ontology/shapes/core/",
 })
 
 const getShapesDocument = async (entity: rdf.NamedNode) => {
