@@ -9584,7 +9584,7 @@ rdf-canonize@^3.0.0:
 
 "rdf-document-editor@https://github.com/buda-base/rdf-document-editor":
   version "0.1.0"
-  resolved "https://github.com/buda-base/rdf-document-editor#600fb5cd95633c8788399650ad8f168b3feacb06"
+  resolved "https://github.com/buda-base/rdf-document-editor#50b1f33e5ca872d577b2cabaeca746f93da68e0f"
   dependencies:
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11.10.5"
