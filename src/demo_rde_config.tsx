@@ -200,7 +200,7 @@ export const setUserLocalEntity = async (
   localStorage.setItem("rde_entities", dataNewStr)
 }
 
-const personShapeRef = new ExtRDFResourceWithLabel(demoShape.uri, { en: "Person" })
+const personShapeRef = new ExtRDFResourceWithLabel(demoShape.uri, { en: "Person" }, prefixMap)
 
 const possibleShapeRefs = [personShapeRef]
 
