@@ -2593,7 +2593,7 @@
   resolved "https://registry.yarnpkg.com/@uiw/copy-to-clipboard/-/copy-to-clipboard-1.0.12.tgz#46f563bd6f3007895f95855e5b4bb692c7251933"
   integrity sha512-3tt7FVSbjtBCNBhffy7k26rpnEmk8GQj9QkTGZBIfpHU7mG3Buryt69u6xooYM7/gmv7GIqD4QxxIauIp2HHKg==
 
-"@uiw/react-markdown-preview@^4.0.24":
+"@uiw/react-markdown-preview@^4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@uiw/react-markdown-preview/-/react-markdown-preview-4.1.4.tgz#27949d2b57447959b0099ba151fa3285376a363c"
   integrity sha512-K99r3Wz7ipZvp4lSMhy1oaq1PYaPCjDDquSZEXlcwaMJhgO+KrjojR6yqaAZjNMS1ol89BCw+n/aazwjVjawEw==
@@ -2612,12 +2612,12 @@
     unist-util-visit "^4.1.0"
 
 "@uiw/react-md-editor@^3.19.1":
-  version "3.19.1"
-  resolved "https://registry.yarnpkg.com/@uiw/react-md-editor/-/react-md-editor-3.19.1.tgz#ee263e537d6d3e91997ad09463fa143884b1adbd"
-  integrity sha512-D4g009GNhmH/uhuYi8EnuO5PEFb3VF5ZhUg7Kq5YRU4+1+kyQgA+WIp46LPFnbEumQ3TVVlFOBYVout0HqZVOw==
+  version "3.19.2"
+  resolved "https://registry.yarnpkg.com/@uiw/react-md-editor/-/react-md-editor-3.19.2.tgz#c0dc265f353e26654f28a7358ac0b20669d0f88b"
+  integrity sha512-WeHaYwkqGlCdcmX9wF8HL9MkMYCRzEVBi1sxlKYP1CwaqH4MoOIPeJErs98OPob0z9XjN1BJF5rrV+7aR48Khw==
   dependencies:
     "@babel/runtime" "^7.14.6"
-    "@uiw/react-markdown-preview" "^4.0.24"
+    "@uiw/react-markdown-preview" "^4.1.4"
     rehype "~12.0.1"
 
 "@webassemblyjs/ast@1.11.1":
@@ -4540,9 +4540,9 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-"edtf@https://github.com/buda-base/edtf.js":
-  version "4.1.0"
-  resolved "https://github.com/buda-base/edtf.js#799741ba4aa558db9b51b871f76ca683582503aa"
+"edtf@https://github.com/buda-base/edtf.js#rde":
+  version "4.4.0"
+  resolved "https://github.com/buda-base/edtf.js#55b6ee03e06a8f67c5c4be38251d98df2d5e1c7c"
   dependencies:
     nearley "^2.19.7"
   optionalDependencies:
@@ -9600,7 +9600,7 @@ rdf-canonize@^3.0.0:
 
 "rdf-document-editor@https://github.com/buda-base/rdf-document-editor":
   version "0.1.0"
-  resolved "https://github.com/buda-base/rdf-document-editor#aa6d2e4d01ae09f856af4ac08f3fbc0757390cc4"
+  resolved "https://github.com/buda-base/rdf-document-editor#8315ea91e86000e3d72bd3a885b9f92a8a3a560b"
   dependencies:
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11.10.5"
