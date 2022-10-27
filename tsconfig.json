@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
+    "noImplicitAny": true,
     "target": "es6",
+    "allowJs": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -18,7 +21,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "downlevelIteration":true, // fixes TS2569 in observer.tsx
+    "sourceMap": true,
+    "outDir": "dist"
   },
   "include": [
     "src"

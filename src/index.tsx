@@ -3,8 +3,16 @@ import * as rdf from "rdflib"
 import { createRoot } from 'react-dom/client';
 import { RecoilRoot } from "recoil"
 import { BrowserRouter, Route, Routes, useLocation, useParams } from "react-router-dom"
-
-const debug = require("debug")("rde:entity:container:demo")
+import { demoConfig } from "./demo_rde_config"
+import {
+  EntityEditContainer,
+  EntityEditContainerMayUpdate,
+  NewEntityContainer,
+  EntityCreationContainer,
+  EntityCreationContainerRoute,
+  EntityShapeChooserContainer,
+  IdTypeParams,
+} from "rdf-document-editor"
 
 const SimpleContainer: FC<{  }> = ({
 }) => {
@@ -23,6 +31,7 @@ function App() {
       <RecoilRoot>
         <Routes>
           <Route path="/" element={<SimpleContainer />} />
+          <Route path="/new" element={<NewEntityContainer config={demoConfig} />} />
         </Routes>
       </RecoilRoot>
     </BrowserRouter>
