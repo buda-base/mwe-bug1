@@ -126,7 +126,7 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
       }
       if (!unmounting.val) setEntityLoadingState({ status: "creating", error: undefined })
       if (!entityNode) entityNode = await generateNode()
-      const graph = new EntityGraph(rdf.graph(), entityNode.uri)
+      const graph = new EntityGraph(rdf.graph(), entityNode.uri, prefixMap)
       const newSubject = new Subject(entityNode, graph)
       if (!unmounting.val) setEntity(newSubject)
       if (!unmounting.val) setEntityLoadingState({ status: "created", error: undefined })
