@@ -65,7 +65,7 @@ bdsa:AdmShape-adminAbout
 bds:AdminPropertyGroup
    a             sh:PropertyGroup ;
    rdfs:label    "Admin data"@en ;
-   sh:order      "7"^^xsd:decimal .
+   sh:order      "1"^^xsd:decimal .
 
 bds:BasePropertyGroup
    a             sh:PropertyGroup ;

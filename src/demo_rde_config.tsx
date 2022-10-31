@@ -40,7 +40,7 @@ const generateConnectedID = async (old_resource: RDFResource, old_shape: NodeSha
   return Promise.resolve(rdf.sym(old_resource.uri + "_CONNECTED"))
 }
 
-const demoShape = rdf.sym("http://purl.bdrc.io/ontology/shapes/core/PersonUIShapes")
+const demoShape = rdf.sym("http://purl.bdrc.io/ontology/shapes/core/PersonShape")
 
 const BDR_uri = "http://purl.bdrc.io/resource/"
 

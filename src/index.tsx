@@ -23,7 +23,7 @@ const HomeContainer: FC<{  }> = ({
       <Link to="/new">
         New entity    
       </Link>
-      <Link to="/edit/bdr:P1583/bds:PersonUIShapes">
+      <Link to="/edit/bdr:P1583/bds:PersonShape">
         Load demo record    
       </Link>
     </React.Fragment>
