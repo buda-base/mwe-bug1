@@ -65,7 +65,7 @@ bdsa:AdmShape-adminAbout
 bds:AdminPropertyGroup
    a             sh:PropertyGroup ;
    rdfs:label    "Admin data"@en ;
-   sh:order      "1"^^xsd:decimal .
+   sh:order      "5"^^xsd:decimal .
 
 bds:BasePropertyGroup
    a             sh:PropertyGroup ;
@@ -473,6 +473,11 @@ bds:PersonShape-personName
    sh:nodeKind   sh:IRI ;
    sh:order      "1"^^xsd:decimal ;
    sh:path       bdo:personName .
+
+bds:StudentTeacherPropertyGroup
+   a             sh:PropertyGroup ;
+   rdfs:label    "Teachers"@en ;
+   sh:order      "3"^^xsd:decimal .
 
 bds:PersonShape-personStudentOf
    a             sh:PropertyShape ;
