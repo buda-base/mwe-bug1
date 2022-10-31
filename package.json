@@ -34,7 +34,7 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "refresh-rde": "cd ../rdf-document-editor/ && yarn build && cd ../mwe-bug1/node_modules/rdf-document-editor/ && rm -rf dist && cp -rf ../../../rdf-document-editor/dist . && cd ../.. && yarn start"
+    "refresh-rde": "cd ../rdf-document-editor/ && yarn build && cd ../rde-demo/node_modules/rdf-document-editor/ && rm -rf dist && cp -rf ../../../rdf-document-editor/dist . && cd ../.. && rm node_modules/.cache -rf && yarn start"
   },
   "devDependencies": {
     "react-scripts": "5.0.1",

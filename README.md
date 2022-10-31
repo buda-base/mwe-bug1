@@ -1,2 +1,2 @@
-# mwe-bug1
-minimal working example for bug 1
+# RDF Document Editor demo
+minimal working example

@@ -21,9 +21,9 @@ import { customAlphabet } from "nanoid"
 import edtf, { parse } from "edtf" // see https://github.com/inukshuk/edtf.js/issues/36#issuecomment-1073778277
 
 import i18n from "i18next"
-import { debug } from "debug"
+import { debug as debugFactory } from "debug"
 
-const debugf = debug("rde:entity:container:demo")
+const debug = debugFactory("rde:entity:container:demo")
 
 const langs = [
   {
@@ -64,7 +64,7 @@ const getShapesDocument = async (entity: rdf.NamedNode) => {
 }
 
 const getDocumentGraph = async (entity: rdf.NamedNode) => {
-  if (entity == rdf.sym("http://purl.bdrc.io/resource/P1583")) {
+  if (entity?.value == "http://purl.bdrc.io/resource/P1583") {
     const loadRes = fetchTtl("/examples/P1583.ttl")
     const { store, etag } = await loadRes
     return Promise.resolve(store)
@@ -73,7 +73,7 @@ const getDocumentGraph = async (entity: rdf.NamedNode) => {
 }
 
 const getConnexGraph = async (entity: rdf.NamedNode) => {
-  if (entity == rdf.sym("http://purl.bdrc.io/resource/P1583")) {
+  if (entity?.value == "http://purl.bdrc.io/resource/P1583") {
     const loadRes = fetchTtl("/examples/P1583-connexGraph.ttl")
     const { store, etag } = await loadRes
     return Promise.resolve(store)
@@ -82,6 +82,7 @@ const getConnexGraph = async (entity: rdf.NamedNode) => {
 }
 
 const getDocument = async (entity: rdf.NamedNode) => {
+  debug("entity:",entity)
   const documentGraph: rdf.Store = await getDocumentGraph(entity)
   const connexGraph: rdf.Store = await getConnexGraph(entity)
   const res = new Subject(entity, new EntityGraph(documentGraph, entity.uri, prefixMap, connexGraph))
@@ -250,7 +251,7 @@ export const humanizeEDTF = (obj: Record<string, any>, str = "", locale = "en-US
       const val = event.toLocaleDateString(locale, options)
       return val
     } catch (e) {
-      debugf("locale error:", e, str, obj)
+      debug("locale error:", e, str, obj)
     }
     return str
   } else {
