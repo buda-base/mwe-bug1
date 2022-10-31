@@ -82,10 +82,10 @@ const getConnexGraph = async (entity: rdf.NamedNode) => {
 }
 
 const getDocument = async (entity: rdf.NamedNode) => {
-  debug("entity:",entity)
   const documentGraph: rdf.Store = await getDocumentGraph(entity)
   const connexGraph: rdf.Store = await getConnexGraph(entity)
   const res = new Subject(entity, new EntityGraph(documentGraph, entity.uri, prefixMap, connexGraph))
+  debug("res:",res)
   return Promise.resolve({ subject: res, etag: "" })
 }
 
