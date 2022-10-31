@@ -14,6 +14,8 @@ import {
   IdTypeParams,
 } from "rdf-document-editor"
 
+import "rdf-document-editor/dist/index.css"
+
 const HomeContainer: FC<{  }> = ({
 }) => {
   return (
