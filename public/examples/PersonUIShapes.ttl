@@ -380,7 +380,7 @@ bds:PersonEventShape-type
    a             sh:PropertyShape ;
    dash:editor   dash:EnumSelectEditor ;
    sh:description  "event type ('founds monastery' is now only in the events of the place)"@en ;
-   sh:in         ( bdo:PersonBirth bdo:PersonDeath bdo:PersonFlourished ) ;
+   sh:in         ( bdo:PersonBirth bdo:PersonDeath bdo:PersonFlourished bdo:PersonOccupiesSeat) ;
    sh:maxCount   1 ;
    sh:message    "A PersonEvent must have one type"@en ;
    sh:minCount   1 ;
@@ -521,6 +521,8 @@ bdo:PersonDeath skos:prefLabel "death"@en .
 
 bdo:PersonFlourished skos:prefLabel "flourished"@en .
 
+bdo:PersonOccupiesSeat skos:prefLabel "occupies seat"@en .
+
 bdo:Role skos:prefLabel "role"@en .
 
 bdo:Corporation skos:prefLabel "corporation"@en .
@@ -528,3 +530,9 @@ bdo:Corporation skos:prefLabel "corporation"@en .
 bda:StatusReleased skos:prefLabel "released"@en .
 
 bda:StatusWithdrawn skos:prefLabel "withdrawn"@en .
+
+bdo:PersonName skos:prefLabel "name"@en .
+
+bdr:TraditionBaromKagyu skos:prefLabel "Barom Kagyu"@en .
+
+bdr:TraditionNyingma skos:prefLabel "Nyingma"@en .
