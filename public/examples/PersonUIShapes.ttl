@@ -452,7 +452,7 @@ bds:PersonShape-hasMother
 bds:PersonShape-personEvent
    a             sh:PropertyShape ;
    dash:editor   dash:DetailsEditor ;
-   bds:propertyShapeType  rde:InternalShape ;
+   rde:propertyShapeType  rde:InternalShape ;
    sh:description  "this Person may have zero or more events like birth, death, ordination."@en ;
    sh:group      bds:EventPropertyGroup ;
    sh:message    ":personEvent object must be an IRI - no blank nodes"@en ;
