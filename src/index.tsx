@@ -20,7 +20,7 @@ const HomeContainer: FC<{  }> = ({
 }) => {
   return (
     <React.Fragment>
-      <Link to="/new">
+      <Link to="/new/bds:PersonShape">
         New entity    
       </Link>
       <Link to="/edit/bdr:P1583/bds:PersonShape">
@@ -36,7 +36,6 @@ function App() {
       <RecoilRoot>
         <Routes>
               <Route path="/" element={<HomeContainer />} />
-              <Route path="/new" element={<NewEntityContainer config={demoConfig} />} />
               <Route path="/new/:shapeQname" element={<EntityCreationContainer config={demoConfig} />} />
               <Route // we need that route to link back value to property where entity was created
                 path="/new/:shapeQname/:subjectQname/:propertyQname/:index"
