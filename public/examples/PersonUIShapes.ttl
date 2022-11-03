@@ -26,6 +26,7 @@ bdsa:AdmEntityShape  a  sh:NodeShape ;
    rdfs:label    "Admin Entity shape"@en ;
    sh:namespace  "http://purl.bdrc.io/admindata/" ;
    sh:property   bdsa:AdmEntityShape-status , bdsa:AdmEntityShape-type ;
+   rde:identifierPrefix  "ADM" ;
    sh:targetClass  adm:AdminData ;
    sh:targetSubjectsOf  adm:adminAbout .
 
