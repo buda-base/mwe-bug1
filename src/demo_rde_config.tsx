@@ -263,7 +263,7 @@ export const humanizeEDTF = (obj: Record<string, any>, str = "", locale = "en-US
 const locales: Record<string, string> = { en: "en-US", "zh-hans": "zh-Hans-CN", bo: "bo-CN" }
 
 const previewLiteral = (lit: rdf.Literal, uiLangs: string[]) => {
-  if (lit.datatype == EDTF_DT) {
+  if (lit.datatype.value == EDTF_DT.value) {
     try {
       const obj = parse(lit.value)
       const edtfObj = edtf(lit.value)
@@ -318,7 +318,7 @@ export const demoConfig: RDEConfig = {
   possibleShapeRefs: possibleShapeRefs,
   possibleShapeRefsForEntity: possibleShapeRefsForEntity,
   possibleShapeRefsForType: possibleShapeRefsForEntity,
-  libraryUrl: "https://library.bdrc.io/",
+  libraryUrl: "https://library.bdrc.io",
   resourceSelector: BUDAResourceSelector,
   previewLiteral: previewLiteral,
   putDocument: putDocument,

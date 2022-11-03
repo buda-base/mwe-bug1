@@ -528,6 +528,8 @@ bdo:Role skos:prefLabel "role"@en .
 
 bdo:Corporation skos:prefLabel "corporation"@en .
 
+bdo:Place skos:prefLabel "place"@en .
+
 bda:StatusReleased skos:prefLabel "released"@en .
 
 bda:StatusWithdrawn skos:prefLabel "withdrawn"@en .
