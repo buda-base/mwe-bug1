@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import * as rdf from "rdflib"
 import {
   NodeShape,
-  generateSubnode,
+  generateSubnodes,
   RDEConfig,
   LocalEntityInfo,
   fetchTtl,
@@ -299,7 +299,7 @@ const putDocument = async (entity: rdf.NamedNode, document: rdf.Store) => {
 }
 
 export const demoConfig: RDEConfig = {
-  generateSubnode: generateSubnode,
+  generateSubnodes: generateSubnodes,
   valueByLangToStrPrefLang: ValueByLangToStrPrefLang,
   possibleLiteralLangs: langs,
   labelProperties: ns.defaultLabelProperties,
