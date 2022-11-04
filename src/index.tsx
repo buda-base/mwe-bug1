@@ -1,6 +1,8 @@
 import React, { FC } from "react"
 import * as rdf from "rdflib"
-import { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client'
+import i18n from "i18next"
+import { initReactI18next } from "react-i18next"
 import { RecoilRoot } from "recoil"
 import { BrowserRouter, Route, Routes, useLocation, useParams, Link } from "react-router-dom"
 import { demoConfig } from "./demo_rde_config"
@@ -14,9 +16,30 @@ import {
   IdTypeParams,
   EntitySelectorContainer,
   BottomBarContainer,
+  enTranslations
 } from "rdf-document-editor"
 
 import "rdf-document-editor/dist/index.css"
+
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .init({
+    resources: {
+      en: {
+        translation: enTranslations,
+      },
+    },
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+      format: function (value, format, lng) {
+        if (format === "lowercase") return value.toLowerCase()
+        else if (format === "uppercase") return value.toUpperCase()
+        return value
+      },
+    },
+  })
 
 const HomeContainer: FC<{  }> = ({
 }) => {
