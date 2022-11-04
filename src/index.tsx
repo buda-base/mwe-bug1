@@ -12,6 +12,7 @@ import {
   EntityCreationContainerRoute,
   EntityShapeChooserContainer,
   IdTypeParams,
+  EntitySelectorContainer,
 } from "rdf-document-editor"
 
 import "rdf-document-editor/dist/index.css"
@@ -34,6 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <RecoilRoot>
+        <EntitySelectorContainer config={demoConfig} />
         <Routes>
               <Route path="/" element={<HomeContainer />} />
               <Route path="/new/:shapeQname" element={<EntityCreationContainer config={demoConfig} />} />
