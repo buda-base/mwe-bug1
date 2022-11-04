@@ -13,6 +13,7 @@ import {
   EntityShapeChooserContainer,
   IdTypeParams,
   EntitySelectorContainer,
+  BottomBarContainer,
 } from "rdf-document-editor"
 
 import "rdf-document-editor/dist/index.css"
@@ -66,6 +67,7 @@ function App() {
               <Route path="/edit/:entityQname/:shapeQname" element={<EntityEditContainer config={demoConfig} />} />
               <Route path="/edit/:entityQname" element={<EntityShapeChooserContainer config={demoConfig} />} />
         </Routes>
+        <BottomBarContainer config={demoConfig}/>
       </RecoilRoot>
     </BrowserRouter>
   )
