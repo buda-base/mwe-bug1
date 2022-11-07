@@ -35,7 +35,7 @@ const langs = [
   },
 ]
 
-const generateConnectedID = async (old_resource: RDFResource, old_shape: NodeShape, new_shape: NodeShape) => {
+const generateConnectedID = async (old_resource: RDFResource, old_shape: NodeShape, type: RDFResource) => {
   // just for the demo:
   return Promise.resolve(rdf.sym(old_resource.uri + "_CONNECTED"))
 }
