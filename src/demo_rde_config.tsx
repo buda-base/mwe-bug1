@@ -14,8 +14,10 @@ import {
   Entity,
   BUDAResourceSelector,
   ValueByLangToStrPrefLang,
+  atoms,
   ns,
 } from "rdf-document-editor"
+import { useRecoilState } from "recoil"
 
 import { customAlphabet } from "nanoid"
 import edtf, { parse } from "edtf" // see https://github.com/inukshuk/edtf.js/issues/36#issuecomment-1073778277
@@ -100,6 +102,8 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
   const [entityLoadingState, setEntityLoadingState] = useState<IFetchState>({ status: "idle", error: undefined })
   const [entity, setEntity] = useState<Subject | null>(null)
   const [shape, setShape] = useState<NodeShape | null>(null)
+  const [entities, setEntities] = useRecoilState(atoms.entitiesAtom)
+  const [tab, setTab] = useRecoilState(atoms.uiTabState)
 
   useEffect(() => {
     return () => {
@@ -130,6 +134,26 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
       if (!entityNode) entityNode = await generateNode()
       const graph = new EntityGraph(rdf.graph(), entityNode.uri, prefixMap)
       const newSubject = new Subject(entityNode, graph)
+      const newEntity: atoms.Entity = {
+        subjectQname: newSubject.qname,
+        state: atoms.EditedEntityState.NeedsSaving,
+        shapeQname: shape.qname,
+        subject: newSubject,
+        subjectLabelState: newSubject.getAtomForProperty(ns.prefLabel.uri),
+        etag: null,
+        loadedUnsavedFromLocalStorage: false
+      }
+      if (!unmounting.val) {
+        const newEntities = [newEntity, ...entities]
+        setEntities(newEntities)
+      }
+      if (!unmounting.val) setEntity(newSubject)
+      if (!unmounting.val) setEntityLoadingState({ status: "created", error: undefined })
+
+      // save to localStorage
+      setUserLocalEntity(newSubject.qname, shape.qname, "", false, null, true)
+
+      if (!unmounting.val && tab !== 0) setTab(0)
       if (!unmounting.val) setEntity(newSubject)
       if (!unmounting.val) setEntityLoadingState({ status: "created", error: undefined })
     }
