@@ -140,24 +140,7 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
 }
 
 export const iconFromEntity = (entity: Entity | null): string => {
-  if (!entity) return ""
-  let icon
-  if (entity.subject) {
-    const rdfType = ns.RDF("type") as rdf.NamedNode
-    if (entity?.subject?.graph?.store?.statements)
-      for (const s of entity.subject.graph.store.statements) {
-        if (s.predicate.value === rdfType.value && s.subject.value === entity.subject.node.value) {
-          icon = s.object.value.replace(/.*?[/]([^/]+)$/, "$1") // .toLowerCase()
-          if (icon.toLowerCase() === "user") break
-        }
-      }
-  }
-  const shapeQname = entity.shapeQname
-  if (!icon && shapeQname) {
-    // TODO: might be something better than that...
-    icon = shapeQname.replace(/^[^:]+:([^:]+?)Shape[^/]*$/, "$1")
-  }
-  return icon as string
+  return ""
 }
 
 export const getUserMenuState = async (): Promise<Record<string, Entity>> => {
@@ -188,9 +171,8 @@ export const getUserLocalEntities = async (): Promise<Record<string, LocalEntity
 export const setUserLocalEntity = async (
   subjectQname: string,
   shapeQname: string | null,
-  ttl: string | null,
+  ttl: string | undefined,
   del: boolean,
-  userId: string,
   etag: string | null,
   needsSaving: boolean
 ): Promise<void> => {
