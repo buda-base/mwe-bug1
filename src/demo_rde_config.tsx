@@ -16,7 +16,7 @@ import {
   ValueByLangToStrPrefLang,
   atoms,
   ns,
-} from "rdf-document-editor"
+} from "../index" //"rdf-document-editor"
 import { useRecoilState } from "recoil"
 
 import { customAlphabet } from "nanoid"

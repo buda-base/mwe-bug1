@@ -17,7 +17,7 @@ import {
   EntitySelectorContainer,
   BottomBarContainer,
   enTranslations
-} from "rdf-document-editor"
+} from "../index" // "rdf-document-editor"
 
 import "rdf-document-editor/dist/index.css"
 
@@ -41,7 +41,7 @@ i18n
     },
   })
 
-const HomeContainer: FC<{  }> = ({
+const HomeContainer: FC = ({
 }) => {
   return (
     <React.Fragment>
