@@ -1,5 +1,4 @@
 import React, { FC } from "react"
-import * as rdf from "rdflib"
 import { createRoot } from 'react-dom/client'
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
@@ -16,8 +15,10 @@ import {
   IdTypeParams,
   EntitySelectorContainer,
   BottomBarContainer,
-  enTranslations
-} from "../index" // "rdf-document-editor"
+  enTranslations,
+  rdf
+} from "rdf-document-editor"
+//} from "../index" 
 
 import "rdf-document-editor/dist/index.css"
 

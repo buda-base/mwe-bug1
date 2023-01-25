@@ -407,7 +407,7 @@ bds:PersonNameShape-personNameLabel
    a             sh:PropertyShape ;
    dash:editor   dash:TextAreaWithLangEditor ;
    dash:singleLine  true ;
-   rde:pushToTopLevelProperty skos:prefLabel ;
+   rde:allowPushToTopLevelLabel skos:prefLabel ;
    sh:datatype   rdf:langString ;
    sh:description  "this Person has a name given by the label."@en ;
    sh:maxCount   1 ;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import * as rdf from "rdflib"
 import {
   NodeShape,
   generateSubnodes,
@@ -16,7 +15,10 @@ import {
   ValueByLangToStrPrefLang,
   atoms,
   ns,
-} from "../index" //"rdf-document-editor"
+  rdf
+} from "rdf-document-editor"
+//} from "../index" 
+
 import { useRecoilState } from "recoil"
 
 import { customAlphabet } from "nanoid"
@@ -268,15 +270,16 @@ export const humanizeEDTF = (obj: Record<string, any>, str = "", locale = "en-US
 
 const locales: Record<string, string> = { en: "en-US", "zh-hans": "zh-Hans-CN", bo: "bo-CN" }
 
-const previewLiteral = (lit: rdf.Literal, uiLangs: string[]) => {
+const previewLiteral = (lit: rdf.Literal, uiLang: string) => {
   if (lit.datatype.value == EDTF_DT.value) {
     try {
       const obj = parse(lit.value)
       const edtfObj = edtf(lit.value)
       const edtfMin = edtf(edtfObj.min)?.values[0]
       const edtfMax = edtf(edtfObj.max)?.values[0]
-      if (edtfMin <= -4000 || edtfMax >= 2100) throw Error(i18n.t("error.year", { min: -4000, max: 2100 })) // eslint-disable-line no-magic-numbers
-      return { value: humanizeEDTF(obj, lit.value, uiLangs[0]), error: null }
+      if (edtfMin <= -4000 || edtfMax >= 2100) 
+        throw Error(i18n.t("error.year", { min: -4000, max: 2100 }) as string) // eslint-disable-line no-magic-numbers
+      return { value: humanizeEDTF(obj, lit.value, uiLang), error: null }
     } catch (e: any) {
       return {
         value: null,
