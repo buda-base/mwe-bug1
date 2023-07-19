@@ -104,7 +104,7 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
   const [entityLoadingState, setEntityLoadingState] = useState<IFetchState>({ status: "idle", error: undefined })
   const [entity, setEntity] = useState<Subject | null>(null)
   const [shape, setShape] = useState<NodeShape | null>(null)
-  const [entities, setEntities] = useRecoilState(atoms.entitiesAtom)
+  const [entities, setEntities] = useRecoilState<atoms.Entity[]>(atoms.entitiesAtom)
   const [tab, setTab] = useRecoilState(atoms.uiTabState)
 
   useEffect(() => {
@@ -331,7 +331,7 @@ export const demoConfig: RDEConfig = {
   resourceSelector: BUDAResourceSelector,
   previewLiteral: previewLiteral,
   putDocument: putDocument,
-  getPreviewLink: (entity) => {
-    return null
+  getPreviewLink: (entity: rdf.NamedNode) => {
+    return ""
   },
 }
