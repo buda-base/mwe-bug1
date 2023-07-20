@@ -45,14 +45,18 @@ i18n
 const HomeContainer: FC = ({
 }) => {
   return (
-    <React.Fragment>
-      <Link to="/new/bds:PersonShape">
-        New entity    
-      </Link>
-      <Link to="/edit/bdr:P1583/bds:PersonShape">
-        Load demo record    
-      </Link>
-    </React.Fragment>
+    <div className="home">
+      <div>
+        <Link to="/new/bds:PersonShape">
+          New entity    
+        </Link>
+        <br/>
+        <br/>
+        <Link to="/edit/bdr:P1583/bds:PersonShape">
+          Load demo record    
+        </Link>
+      </div>
+    </div>
   )
 }
 
@@ -63,6 +67,7 @@ function App() {
         <EntitySelectorContainer config={demoConfig} />
         <Routes>
               <Route path="/" element={<HomeContainer />} />
+              <Route path="/new" element={<HomeContainer />} />
               <Route path="/new/:shapeQname" element={<EntityCreationContainer config={demoConfig} />} />
               <Route // we need that route to link back value to property where entity was created
                 path="/new/:shapeQname/:subjectQname/:propertyQname/:index"

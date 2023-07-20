@@ -100,6 +100,8 @@ const generateNode = async () => {
   return Promise.resolve(rdf.sym(BDR_uri + "P0DEMO" + nanoidCustom()))
 }
 
+let timeout: string | number | NodeJS.Timeout | null | undefined = null
+
 export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNode | null, unmounting = { val: false }) {
   const [entityLoadingState, setEntityLoadingState] = useState<IFetchState>({ status: "idle", error: undefined })
   const [entity, setEntity] = useState<Subject | null>(null)
@@ -109,6 +111,10 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
 
   useEffect(() => {
     return () => {
+      if(timeout) { 
+        clearTimeout(timeout)
+        timeout = null
+      }
       unmounting.val = true
     }
   }, [])
@@ -121,6 +127,7 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
 
   useEffect(() => {
     async function createResource(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNode | null) {
+
       if (!unmounting.val) setEntityLoadingState({ status: "fetching shape", error: undefined })
       const loadShape = getShapesDocument(shapeNode)
 
@@ -157,9 +164,11 @@ export function EntityCreator(shapeNode: rdf.NamedNode, entityNode: rdf.NamedNod
 
       if (!unmounting.val && tab !== 0) setTab(0)
       if (!unmounting.val) setEntity(newSubject)
-      if (!unmounting.val) setEntityLoadingState({ status: "created", error: undefined })
+      if (!unmounting.val) setEntityLoadingState({ status: "created", error: undefined })      
+
+      timeout = null
     }
-    createResource(shapeNode, entityNode)
+    if(!timeout) timeout = setTimeout(() => createResource(shapeNode, entityNode), 150)
   }, [shapeNode, entityNode])
 
   return { entityLoadingState, entity, reset }
