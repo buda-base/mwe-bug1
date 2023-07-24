@@ -72,9 +72,9 @@ const getDocumentGraph = async (entity: rdf.NamedNode) => {
   if (entity?.value == "http://purl.bdrc.io/resource/P1583") {
     const loadRes = fetchTtl("/examples/P1583.ttl")
     const { store, etag } = await loadRes
-    return Promise.resolve(store)
+    return Promise.resolve({store, etag})
   }
-  return Promise.resolve(new rdf.Store())
+  return Promise.resolve({ store:new rdf.Store(), etag: "" })
 }
 
 const getConnexGraph = async (entity: rdf.NamedNode) => {
@@ -87,11 +87,11 @@ const getConnexGraph = async (entity: rdf.NamedNode) => {
 }
 
 const getDocument = async (entity: rdf.NamedNode) => {
-  const documentGraph: rdf.Store = await getDocumentGraph(entity)
+  const {store: documentGraph, etag } = await getDocumentGraph(entity)
   const connexGraph: rdf.Store = await getConnexGraph(entity)
   const res = new Subject(entity, new EntityGraph(documentGraph, entity.uri, prefixMap, connexGraph))
-  debug("res:",res)
-  return Promise.resolve({ subject: res, etag: "" })
+  debug("res:", res, etag)
+  return Promise.resolve({ subject: res, etag })
 }
 
 const nanoidCustom = customAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 8) // eslint-disable-line no-magic-numbers
