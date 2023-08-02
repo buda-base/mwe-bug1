@@ -48,8 +48,7 @@ i18n
     },
   })
 
-const HomeContainer: FC = ({
-}) => {
+const HomeContainer: FC = () => {
   return (
     <div className="home">
       <div>
