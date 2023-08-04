@@ -40,7 +40,7 @@ i18n
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
-      format: function (value, format, lng) {
+      format: function (value: string, format: string, lng: any) {
         if (format === "lowercase") return value.toLowerCase()
         else if (format === "uppercase") return value.toUpperCase()
         return value
@@ -72,7 +72,7 @@ function AppComponent() {
 
   const [entities, setEntities] = useRecoilState(atoms.entitiesAtom)
   const [uiTab, setTab] = useRecoilState(atoms.uiTabState)
-  const entity = entities.findIndex((e, i) => i === uiTab)
+  const entity = entities.findIndex((e: any, i: any) => i === uiTab)
   const [undos, setUndos] = useRecoilState(atoms.uiUndosState)
   const entityUri = entities[entity]?.subject?.uri || "tmp:uri"
   const undo = undos[entityUri]

@@ -37,6 +37,7 @@
     "refresh-rde": "cd ../rdf-document-editor/ && yarn build && cd ../rde-demo/node_modules/rdf-document-editor/ && rm -rf dist && cp -rf ../../../rdf-document-editor/dist . && cd ../.. && rm node_modules/.cache -rf"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "react-scripts": "^5.0.1",
     "ts-loader": "^9.4.4",
     "typescript": "^4.9.5",
