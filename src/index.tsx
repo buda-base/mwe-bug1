@@ -40,7 +40,7 @@ i18n
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
-      format: function (value: string, format: string, lng: any) {
+      format: function (value: string, format?: string, lng?: any) {
         if (format === "lowercase") return value.toLowerCase()
         else if (format === "uppercase") return value.toUpperCase()
         return value
@@ -193,7 +193,7 @@ let ctrlDown = false
 
 document.onkeydown = (e: KeyboardEvent) => {
   ctrlDown = e.metaKey || e.ctrlKey
-  const key = e.key.toLowerCase()
+  const key = e.key?.toLowerCase()
   //debug("kD", e)
   if (ctrlDown && (key === "z" || key === "y")) {
     //debug("UNDO/REDO", undoRef, redoRef)
