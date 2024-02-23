@@ -20,13 +20,14 @@ import {
   history,
   atoms,
   getHistoryStatus,
-  HistoryStatus,
-  undoRef, 
-  redoRef
+  HistoryStatus
 } from "rdf-document-editor"
 //} from "../index" 
 
 import "rdf-document-editor/dist/index.css"
+import debugFactory from "debug"
+
+const debug = debugFactory("rde:demo")
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -105,31 +106,6 @@ function AppComponent() {
     </>
   )
 }
-
-
-let ctrlDown = false
-
-document.onkeydown = (e: KeyboardEvent) => {
-  ctrlDown = e.metaKey || e.ctrlKey
-  const key = e.key?.toLowerCase()
-  //debug("kD", e)
-  if (ctrlDown && (key === "z" || key === "y")) {
-    //debug("UNDO/REDO", undoRef, redoRef)
-
-    if (!e.shiftKey) {
-      if (key === "z" && undoRef && undoRef.current) undoRef.current.click()
-      else if (key === "y" && redoRef && redoRef.current) redoRef.current.click()
-    } else if (key === "z" && redoRef && redoRef.current) redoRef.current.click()
-
-    // DONE: fix conflict with chrome undo inside text input
-    const elem = document.activeElement as HTMLElement
-    if (elem) elem.blur()
-    e.preventDefault()
-    e.stopPropagation()
-    return false
-  }
-}
-
 
 function App() {
   return (
